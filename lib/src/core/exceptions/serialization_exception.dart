@@ -49,3 +49,20 @@ class InvalidTypeException extends SerializationException {
     required super.payload,
   });
 }
+
+/// Exception thrown when a payment product type does not exist for a given id.
+@immutable
+class PaymentProductTypeDoesNotExistException extends SerializationException {
+  const PaymentProductTypeDoesNotExistException({
+    required super.stackTrace,
+    required super.payload,
+    required this.id,
+    AppException? exception,
+  }) : super(
+          exception: exception ?? 'Unknown payment type: $id',
+          userFriendlyMessage: 'Some issue happening with the currently selected payment type',
+        );
+
+  /// The id of the payment product type that does not exist.
+  final String id;
+}

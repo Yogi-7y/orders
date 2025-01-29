@@ -1,4 +1,7 @@
 .vscode/settings.json
-build
+build/
 .dart_tool/
+macos/
+ios/
+android/
 macos/

@@ -1,3 +1,4 @@
+import 'dart:developer' as developer;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,41 +16,50 @@ class OrderListItem extends ConsumerWidget {
     final theme = ref.watch(themeProvider);
     final order = ref.watch(scopedOrderProvider);
 
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        children: [
-          _ProductLeadingImage(),
-          const SizedBox(width: 12),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                order.merchant.name,
-                style: font.label1,
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => developer.log('Order item tapped: ${order.id}'),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _ProductLeadingImage(),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    order.merchant.name,
+                    style: font.label1,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    order.paymentProductType.displayText,
+                    style: font.caption1,
+                  ),
+                ],
               ),
-              const SizedBox(height: 4),
-              Text(
-                order.paymentProductType.displayText,
-                style: font.caption1,
-              ),
-            ],
-          ),
-          const Spacer(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                '${order.amount.currency} ${order.amount.value}',
-                style: font.label2,
-              ),
-              Text(
-                order.status.displayText,
-                style: font.caption1.copyWith(color: theme.statusColor),
-              ),
-            ],
-          )
-        ],
+            ),
+            const SizedBox(width: 12),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  '${order.amount.currency} ${order.amount.value}',
+                  style: font.label2,
+                ),
+                Text(
+                  order.status.displayText,
+                  style: font.caption1.copyWith(color: theme.statusColor),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

@@ -1,3 +1,5 @@
+import 'package:core_y/core_y.dart';
+
 import '../../domain/repository/order_repository.dart';
 import '../data_sources/remote_data_source.dart';
 
@@ -7,7 +9,13 @@ class OrderRepositoryImpl implements OrderRepository {
   final OrderRemoteDataSource remoteDataSource;
 
   @override
-  AsyncOrders getOrders() {
-    throw UnimplementedError();
+  AsyncOrders getOrders() async {
+    try {
+      final result = await remoteDataSource.getOrders();
+
+      return Success(result);
+    } catch (exception, stackTrace) {
+      return Failure(AppException(stackTrace: stackTrace, exception: exception));
+    }
   }
 }

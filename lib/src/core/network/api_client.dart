@@ -4,7 +4,7 @@ import 'package:network_y/src/request/request.dart';
 
 import '../constants/api.dart';
 
-final apiProvider = Provider<ApiClient>((ref) => ApiClient(apiExecutor: DioApiExecutor()));
+final apiClientProvider = Provider<ApiClient>((ref) => ApiClient(apiExecutor: DioApiExecutor()));
 
 class BaseApiRequest extends Request {
   BaseApiRequest({

@@ -12,7 +12,7 @@ class MerchantModel extends Merchant {
 
     return MerchantModel(
       id: validator.isOfType<String>('merchant_id'),
-      name: validator.isOfType<String>('merchant_name') + 'some random long merchant name',
+      name: validator.isOfType<String>('merchant_name'),
       logo: validator.isOfType<String>('merchant_logo'),
     );
   }

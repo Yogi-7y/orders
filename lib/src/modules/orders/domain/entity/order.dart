@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 
 import 'merchant.dart';
@@ -28,6 +29,9 @@ class Order {
   final DateTime createdAt;
   final DateTime updatedAt;
   final OrderStatus status;
+
+  String get formattedCreatedAt => DateFormat('MMMM yyyy').format(createdAt);
+  String get formattedUpdatedAt => DateFormat('MMMM yyyy').format(updatedAt);
 
   Order copyWith({
     OrderId? id,

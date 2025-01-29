@@ -5,10 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/theme/colors/theme.dart';
 import '../../../../core/theme/typography/typography.dart';
+import '../../domain/entity/order.dart';
 import '../state/orders_provider.dart';
 
 class OrderListItem extends ConsumerWidget {
-  const OrderListItem({super.key});
+  const OrderListItem({super.key, required Order order});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

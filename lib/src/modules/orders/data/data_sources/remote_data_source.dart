@@ -41,9 +41,7 @@ class OrderRemoteDataSourceImpl implements OrderRemoteDataSource {
 
         return orderModels;
       },
-      onFailure: (error) {
-        throw error;
-      },
+      onFailure: (error) => throw error,
     );
   }
 }

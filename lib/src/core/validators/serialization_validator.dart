@@ -7,7 +7,7 @@ import '../exceptions/serialization_exception.dart';
 /// Usage:
 /// ```dart
 /// final validator = FieldTypeValidator(payload);
-/// final name = validator.validateField<String>('name');
+/// final name = validator.isOfType<String>('name');
 /// ```
 @immutable
 class FieldTypeValidator {

@@ -20,7 +20,7 @@ dependencies:
   meta: ^1.15.0 # Provides annotations like @immutable, @protected etc. Internally used by Flutter.
   cached_network_image: ^3.4.1
   intl: ^0.20.2
-  collection: ^1.19.0
+  collection: ^1.19.0 # utility function to super power iterables. Internally used by Flutter as well, so no dependency overhead.
 
 dev_dependencies:
   flutter_test:

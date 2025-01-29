@@ -12,6 +12,7 @@ abstract class AppTheme {
     required this.textPrimary,
     required this.textSecondary,
     required this.neutral200,
+    required this.statusColor,
   });
 
   final Color surface0;
@@ -19,6 +20,8 @@ abstract class AppTheme {
   final Color textSecondary;
 
   final Color neutral200;
+
+  final Color statusColor;
 }
 
 final themeProvider = StateProvider<AppTheme>((ref) => LightTheme());

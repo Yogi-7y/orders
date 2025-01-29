@@ -12,6 +12,7 @@ class OrderListItem extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final font = ref.watch(fontsProvider);
+    final theme = ref.watch(themeProvider);
     final order = ref.watch(scopedOrderProvider);
 
     return Container(
@@ -44,7 +45,7 @@ class OrderListItem extends ConsumerWidget {
               ),
               Text(
                 order.status.displayText,
-                style: font.caption1.copyWith(color: const Color(0xff966F22)),
+                style: font.caption1.copyWith(color: theme.statusColor),
               ),
             ],
           )

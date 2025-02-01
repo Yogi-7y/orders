@@ -1,22 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() => runApp(const MyApp());
+import 'src/app.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Tamara Assignment'),
-        ),
-        body: const Center(
-          child: Text('Tamara Assignment'),
-        ),
-      ),
-    );
-  }
-}
+void main() => runApp(const ProviderScope(child: MyApp()));

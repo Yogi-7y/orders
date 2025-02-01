@@ -5,3 +5,8 @@ macos/
 ios/
 android/
 macos/
+linux/
+windows/
+web/
+.flutter-plugins
+.flutter-plugins-dependencies
